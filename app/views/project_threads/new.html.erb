@@ -1,5 +1,14 @@
+<%= stylesheet_link_tag "project_threads" %>
+<div class="container">
+
+<div class="project-threads-form-container">
 <h1>New Project Thread</h1>
 
+<div>
 <%= render 'form', project_thread: @project_thread %>
-
-<%= link_to 'Back', project_threads_path %>
+</div>
+<div>
+<%= link_to 'Back', project_threads_path, class: "editBack" %>
+</div>
+</div>
+</div>

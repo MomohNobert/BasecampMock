@@ -1,3 +1,8 @@
-// Place all the styles related to the threadMessages controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: https://sass-lang.com/
+.thread-messages-content-container {
+    margin-top: 5vh;
+    position: relative;
+    width: 90%;
+    min-height: 20vh;
+    display: flex;
+    justify-content: space-between;  
+}

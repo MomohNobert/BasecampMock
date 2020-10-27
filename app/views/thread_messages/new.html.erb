@@ -1,7 +1,17 @@
+<%= stylesheet_link_tag "thread_messages" %>
+<div class="container">
+<div class="project-form-container">
 <h1>New Thread Message</h1>
+
+<div>
 <% if request.path.include? "reply" %>
   <%= render 'form', thread_message: @thread_message, user_id:current_user.id, mode: "reply", parent_message_uuid: params[:parent_message_id] %>
 <% else %>
   <%= render 'form', thread_message: @thread_message, user_id:current_user.id, mode: "new"%>
 <% end %>
-<%= link_to 'Back', project_threads_path %>
+</div>
+<div>
+<%= link_to 'Back', project_threads_path, class: "editBack" %>
+</div>
+</div>
+</div>>
