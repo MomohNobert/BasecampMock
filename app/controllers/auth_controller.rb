@@ -11,7 +11,7 @@ class AuthController < ApplicationController
       session[:user_id] = user.id
       redirect_to "/projects"
     else
-      render "auth/login", flash: { error: "invalid email/password" }
+      render "auth/login",  notice: "invalid email/password" 
     end
   end
 
@@ -25,7 +25,7 @@ class AuthController < ApplicationController
     if @user.save
       redirect_to "/"
     else
-      redirect_to "/register", flash: { error: @user.errors.messages }
+      redirect_to "/register",  notice: @user.errors.messages 
     end
   end
 

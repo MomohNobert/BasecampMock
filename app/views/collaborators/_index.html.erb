@@ -6,14 +6,19 @@
 </div>
 
 <div class="collaborator-content-container">
-  <div >
-    <% @collaborators.each do |collaborator| %>
-      <div>
-        <span><%= collaborator.user.email %></span>
-        <span><%= link_to 'DELETE', collaborator_path(project_id: collaborator.project_id, id:collaborator.id  ), method: :delete, data: { confirm: 'Are you sure?' }, class: "text delete" %></span>
-      </div>
-    <% end %>
-  </div>
+  <% if !@project.collaborators.empty? %>
+    <div class="collaborator-cards-container">
+      <% @collaborators.each do |collaborator| %>
+        <div class="collaborator-content">
+          <span><%= collaborator.user.email %></span>
+          <span><%= link_to 'DELETE', collaborator_path(project_id: collaborator.project_id, id:collaborator.id  ), method: :delete, data: { confirm: 'Are you sure?' }, class: "text delete" %></span>
+        </div>
+      <% end %>
+    </div>
+  <% else %>
+      <div class="nothing-div">
+        <span>NO COLLABORATORS AVAILABLE</span>
+      </div> 
+  <% end %>
 </div>
 
-<br>

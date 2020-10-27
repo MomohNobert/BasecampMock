@@ -116,7 +116,7 @@ body {
     position: absolute;
     bottom: 15px;
     right: 15px;
-    height: 125px;
+    min-height: 50px;
     width: 500px;
     z-index: 1;
     text-align: center;
@@ -147,4 +147,11 @@ body {
     align-items: center;
     justify-content: space-between;
     height: 30px;
+}
+
+.nothing-div {
+    display: grid;
+    place-items: center;
+    height: 100%;
+    width: 100%;
 }

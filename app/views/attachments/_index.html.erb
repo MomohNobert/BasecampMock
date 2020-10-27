@@ -1,26 +1,29 @@
+<%= stylesheet_link_tag "attachments" %>
+
 <div class="header">
 <h1>Attachments</h1>
 <%= link_to "New Attachment", new_attachment_path(project_id: project.id), class: "text edit" %>
 </div>
 
-  <% if !@project.attachments.nil? %>
-   <tbody>
+  <div class="attachment-content-container">
+  <% if !@project.attachments.empty? %>
     <% @project.attachments.each do |attachment| %>
-      <tr>
-        <td><%= attachment.project_id %></td>
-        <td><%= attachment.user.email %></td>
-        <td><%= attachment.file_name %></td>
-        <td><a href=<%= rails_blob_path(attachment.file, disposition: "attachment") %>> Download file <a/></td>
-      
-        <td><%= link_to "Destroy", attachment, method: :delete, data: { confirm: "Are you sure?" } %></td>
-      </tr>
+    <div class="attachment-content">
+    <div class="attachment-details">
+      <span class="bold"><%= attachment.file_name.capitalize %></span>
+      <span class="tiny"><%= attachment.user.email %></span>
+    </div>
+    <div class="methods">
+      <span class="edit text"><a href=<%= rails_blob_path(attachment.file, disposition: "attachment") %>> Download file <a/></span>
+      <span><%= link_to "Destroy", attachment, method: :delete, data: { confirm: "Are you sure?" }, class: "delete text" %></span>
+    </div>
+    </div>   
     <% end %>
-  </tbody>
-    
+    <% else %>
+      <div class="nothing-div">
+        <span>NO ATTACHMENTS AVAILABLE</span>
+      </div>
   <% end %>
 
-  
-</table>
-
-<br>
+  </div>
  
