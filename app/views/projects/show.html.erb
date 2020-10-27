@@ -11,7 +11,7 @@
                 </div>
             </div>
             <div class="project-collaborator-container">
-                <%= render 'collaborators/index' %>
+                <%= render 'collaborators/index', project: @project %>
                 <%= render "attachments/index", project: @project %>
             </div>
         </div>

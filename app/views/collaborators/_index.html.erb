@@ -1,24 +1,19 @@
 <%= stylesheet_link_tag "collaborators" %>
 
-  <h1> List of Collaborators </h1>
+<div class="header">
+<h1> List of Collaborators </h1>
+<%= link_to "New Collaborator", new_collaborator_path(:project_id: params[:id]), class: "text edit" %>
+</div>
 
 <div class="collaborator-content-container">
   <div >
     <% @collaborators.each do |collaborator| %>
       <div>
         <span><%= collaborator.user.email %></span>
-        <span><%#= link_to 'Show', collaborator %></span>
-        <span><%#= link_to 'Edit', edit_collaborator_path(collaborator) %></span>
-        <span><%= link_to 'Destroy', collaborator_path(project_id: collaborator.project_id, id:collaborator.id  ), method: :delete, data: { confirm: 'Are you sure?' } %></span>
+        <span><%= link_to 'DELETE', collaborator_path(project_id: collaborator.project_id, id:collaborator.id  ), method: :delete, data: { confirm: 'Are you sure?' }, class: "text delete" %></span>
       </div>
     <% end %>
   </div>
 </div>
 
 <br>
-
-<%
-=begin%>
- <%= link_to 'New Collaborator', new_collaborator_path %> 
-<%
-=end%>
