@@ -1,5 +1,5 @@
 <%= stylesheet_link_tag "project" %>
-<div class="projects-container">
+<div class="container">
 
 <div class="project-form-container">
 <h1>New Project</h1>
@@ -8,7 +8,7 @@
 <%= render 'form', project: @project %>
 </div>
 <div>
-<%= link_to 'Back', projects_path %>
+<%= link_to 'Back', projects_path, class: "editBack" %>
 </div>
 </div>
 </div>

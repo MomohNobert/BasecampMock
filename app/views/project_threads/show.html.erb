@@ -1,28 +1,29 @@
-<p id="notice"><%= notice %></p>
+<%= stylesheet_link_tag "project_threads" %>
+<div class="container">
 
-<p>
-  <strong>Project:</strong>
-  <%= @project_thread.project_id %>
-</p>
+<div class="thread-container">
+  <div>
+    <h1>
+      <strong>Thread title:</strong>
+      <%= @project_thread.thread_title %>
+    </h1>
+    <p class="tiny">
+      <strong>Project:</strong>
+      <%= @project_thread.project_id %>
+    </p>
+    <p class="tiny">
+      <strong>Owner:</strong>
+      <%= @project_thread.user.email %>
+    </p>
+  </div>
 
-<p>
-  <strong>Owner:</strong>
-  <%= @project_thread.user.email %>
-</p>
-
-<p>
-  <strong>Thread title:</strong>
-  <%= @project_thread.thread_title %>
-</p>
-
-
-
-<hr/>
 <div class="thread-message-detail-container">
     <%= render 'thread_messages/index', messages: @thread_messages %>
 </div>
 
-
+<div class="editBack">
 <%= link_to "Edit", edit_project_thread_path(@project_thread) %> |
 <%= link_to "Back", get_project_thread_path(id: @project_thread.project.id) %> |
-<%= link_to "Create a message", create_thread_message_path(project_thread_id: @project_thread.id) %> |
+<%= link_to "Create a message", create_thread_message_path(project_thread_id: @project_thread.id) %> 
+</div>
+</div>

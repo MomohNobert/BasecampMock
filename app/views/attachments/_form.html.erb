@@ -1,6 +1,6 @@
 <%= form_with(model: attachment, local: true) do |form| %>
   <% if attachment.errors.any? %>
-    <div id="error_explanation">
+    <div class="error-message" id="error_explanation">
       <h2><%= pluralize(attachment.errors.count, "error") %> prohibited this attachment from being saved:</h2>
 
       <ul>
@@ -11,16 +11,19 @@
     </div>
   <% end %>
 
+  <div class="form-element-container">
+    <div class="form-container-file-field">
+      <%= form.file_field :file, class: "form-container__input-title" %>
+    </div>
 
-  <%= form.file_field :file %>
-  <%= form.text_field :project_id, :value => params[:project_id], :type => "hidden" %>
 
-  <div class="field">
-    <%= form.label :file_name %>
-    <%= form.text_area :file_name %>
+    <div class="form-container-title">
+      <%= label_tag(:file_name, "File Name", class: "form-container__label-description") %>
+      <%= form.text_field :file_name, class: "form-container__input-title" %>
+    </div>
   </div>
 
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit "Create Attachment", class: "action-button" %>
   </div>
 <% end %>

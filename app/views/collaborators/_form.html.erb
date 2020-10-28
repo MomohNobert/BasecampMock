@@ -1,15 +1,17 @@
 <%= form_with(model: collaborator, local: true) do |form| %>
-  <% flash.each do |type, msg| %>
-    <div>
-      <% if msg.class.to_s=="Array"  %>
-        <%= msg.join() and return %>
-      <% else %>
-        <%= msg and return %>
-      <% end %>
+  <% if collaborator.errors.any? %>
+    <div class="error-message" id="error_explanation">
+      <h2><%= pluralize(collaborator.errors.count, "error") %> prohibited this attachment from being saved:</h2>
+
+      <ul>
+        <% collaborator.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
     </div>
   <% end %>
 
-  <div class="form-element-container">
+  <div class="form-container-title">
     <%= form.label :email, 'Add Collaborator', class: "form-container__label-title" %>
     <%= form.text_field :email, type: "email", class: "form-container__input-title" %>
   </div>

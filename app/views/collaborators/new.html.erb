@@ -1,14 +1,14 @@
 <%= stylesheet_link_tag "collaborators" %>
-<div class="collaborator-container">
+<div class="container">
 
-    <div class="collaborator-content-container">
-        <div class="collaborator-new-container">
-            <h1>New Collaborator</h1>
-            <%= render 'form', collaborator: @collaborator %>
-        </div>
-        <hr/>
-    </div>
-    <div class="links-container">
-    <%= link_to 'Back', projects_path %>
-    </div>
+<div class="collaborator-form-container">
+<h1>New Collaborator</h1>
+
+<div>
+<%= render 'form', collaborator: @collaborator %>
+</div>
+<div>
+<%= link_to 'Back', projects_path, class: "editBack" %>
+</div>
+</div>
 </div>
