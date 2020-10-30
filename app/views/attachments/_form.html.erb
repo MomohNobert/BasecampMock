@@ -16,6 +16,8 @@
       <%= form.file_field :file, class: "form-container__input-title" %>
     </div>
 
+     <%= form.text_field :project_id, :value => params[:project_id], :type => "hidden" %>
+
 
     <div class="form-container-title">
       <%= label_tag(:file_name, "File Name", class: "form-container__label-description") %>
